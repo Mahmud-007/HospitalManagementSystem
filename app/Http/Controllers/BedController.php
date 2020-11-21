@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Bed;
 
+
 class BedController extends Controller
 {
     public function createBed(){
@@ -12,11 +13,15 @@ class BedController extends Controller
     }
 
     public function bedList(){
+
         $beds= Bed::all();
 
         return view('Beds.beds',[
             'beds'=>$beds
         ]);
+
+        //return Datatables::of(Bed::query())->make(true);
+
     }
 
     public function saveBed(){

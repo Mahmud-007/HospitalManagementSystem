@@ -14,11 +14,8 @@
     <select name="status" id="status">
       <option value="available">Available</option>
       <option value="unavailable">Unavailable</option>
-
     </select>
-
-
-    <input type="submit" value="Add">
+      <input type="submit" value="Add">
   </form>
             <br> <br>
             <h3>{{session('msg')}}</h3>

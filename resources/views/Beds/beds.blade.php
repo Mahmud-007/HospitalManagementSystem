@@ -1,27 +1,48 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="flex-center position-ref full-height">
-        <div class="content">
-    <div class="title m-b-md">
+    <br/><br/><br/>
+    <div class=" container title  flex-center">
         Bed List
     </div>
-    @foreach($beds as $bed)
-        <div>{{$bed->name}}--{{$bed->status}}</div>
-        <form action='/beds/{{$bed->id}}' method="POST">
-            @csrf
-            @method('DELETE')
-            <button>Remove Bed</button>
-            <br> <br>
-            </form>
+    <table class=" container table table-striped" id="myTable">
+        <thead>
+        <tr>
 
-    @endforeach
-                <div class="links">
-                    <a href="/createBed">Create Bed</a>
-                    <a href="/admit">Admit Patient</a>
-                    <a href="/patients">Patient List</a>
-                </div>
-            <h3>{{session('msg')}}</h3>
-        </div>
-    </div>
+            <th scope="col">Bed No</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($beds as $bed)
+
+            <tr>
+                <th scope="row ">{{$bed->name}}</th>
+                <td >
+                    {{$bed->status}}
+                </td>
+                <td class="action">
+                    <form action='/beds/{{$bed->id}}' method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button>Remove Bed</button>
+                        <br> <br>
+                    </form>
+                </td>
+
+            </tr>
+        @endforeach
+
+            <div class="container">
+                <h3>{{session('msg')}}</h3>
+            </div>
+
+        </tbody>
+
+    </table>
+
 @endsection
+
+

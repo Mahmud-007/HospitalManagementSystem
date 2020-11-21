@@ -31,7 +31,17 @@ Route::post('/admit','PatientController@savePatient')->middleware('auth');
 
 Route::get('/patients','PatientController@patientList')->middleware('auth');
 
-Route::delete('/patients/{id}','PatientController@remove')->middleware('auth');
+Route::post('/patients/{id}','PatientController@remove')->middleware('auth');
+
+        //Bills
+
+Route::get('/patient/bill/{id}','BillController@bill')->middleware('auth');
+
+Route::post('/patient/bill/{id}','BillController@createBill')->middleware('auth');
+
+Route::get('/patient/payment/{id}','BillController@payment')->middleware('auth');
+
+Route::post('/patient/payment/{id}','BillController@payDues')->middleware('auth');
 
 
 

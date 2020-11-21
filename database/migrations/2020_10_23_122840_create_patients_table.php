@@ -18,6 +18,7 @@ class CreatePatientsTable extends Migration
             $table->string('name');
             $table->integer('age');
             $table->string('mobile_no');
+            $table->enum('status', ['Admitted', 'Released'])->default('Admitted');
             $table->unsignedBigInteger('bed_id');
             $table->foreign('bed_id')->references('id')->on('beds');
             $table->timestamps();

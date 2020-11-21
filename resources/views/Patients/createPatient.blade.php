@@ -10,13 +10,13 @@
     <form action="/admit" method="POST">
     @csrf
     <label for="name">Name:</label>
-    <input type="text" name="name" id="name" required>
+    <input type="text" name="name" id="name" value="{{session('name')}}" required>
 
     <label for="age">Age:</label>
-    <input type="number" name="age">
+    <input type="number" name="age" value="{{session('age')}}">
 
     <label for="mobile_no">Mobile No:</label>
-    <input type="text" name="mobile_no">
+    <input type="text" name="mobile_no" value="{{session('mobile')}}">
 
     <label for="bed">Bed:</label>
         <!--  <input type="text" name="bed">
@@ -26,15 +26,11 @@
                 <option> {{$bed->name}}</option>
             @endforeach
         </select>
-    <input type="submit" value="Admit Patient">
+    <button type="submit">Admit Patient</button>
   </form>
             <br> <br>
     <h3>{{session('msg')}}</h3>
-            <div class="links">
-                <a href="/createBed">Create Bed</a>
-                <a href="/beds">Bed List</a>
-                <a href="/patients">Patient List</a>
-            </div>
+
         </div>
     </div>
 @endsection

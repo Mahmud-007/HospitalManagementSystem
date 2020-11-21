@@ -50,3 +50,9 @@
 .m-b-md {
     margin-bottom: 30px;
 }
+.card{
+    margin-top: 100px;
+}
+.action{
+    display:flex;
+}
